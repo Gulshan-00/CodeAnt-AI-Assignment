@@ -23,7 +23,7 @@ code {
   font-family: "Poppins", serif;
   font-weight: 500;
   font-style:normal ;
-
+   
 }
 @tailwind base;
 @tailwind components;

@@ -7,6 +7,8 @@ import CloudSecurity from './Repositories/CloudSecurity'
 import AiCodeReview from './Repositories/AiCodeReview'
 import ErrorPage from './ErrorPage/ErrorPage'
 import RepoCalendar from './Repositories/RepoCalendar'
+import Support from './Repositories/Support'
+import HowToUse from './Repositories/HowToUse'
 
 const MainRoutes = () => {
 
@@ -40,6 +42,14 @@ const MainRoutes = () => {
                     path:"/repositories/settings",
                     element:<Settings/>,
                 },
+                {
+                    path:"/repositories/howtouse",
+                    element:<HowToUse/>,
+                },
+                {
+                    path:"/repositories/support",
+                    element:<Support/>,
+                }
             ]
         },
         

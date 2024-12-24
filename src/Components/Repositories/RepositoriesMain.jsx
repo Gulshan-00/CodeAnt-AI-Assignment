@@ -11,6 +11,7 @@ import Logout from "../../assets/Logout.png";
 import { Link, Outlet } from "react-router-dom";
 import HamBurgerIcon from "../../assets/HamBurger.png";
 import HamBurger from "../HamBurger/HamBurger";
+import CrossHamBurger from "../../assets/Cross-HamBurger.png"
 
 const RepositoriesMain = () => {
   // const [onclick, setOnClick] = useState("true");
@@ -19,9 +20,7 @@ const RepositoriesMain = () => {
      setHamBurger(!hamburger);
   }
   console.log(hamburger)
-  const closeHamburger = () => {
-    setHamBurger(!hamburger);
-  };
+  
   // console.log(hamburger)
 
   return (
@@ -33,9 +32,11 @@ const RepositoriesMain = () => {
             <img className="size-8" src={logoimg} alt="" />
             <h1>CodeAnt AI</h1>
             </div>
-            <div class="hamburger-div">
+            {hamburger?<div class="hamburger-div">
+              <img  class="hamburger" onClick={hamBurgerFunction}  src={CrossHamBurger} alt="img" />
+            </div>:<div class="hamburger-div">
               <img  class="hamburger" onClick={hamBurgerFunction}  src={HamBurgerIcon} alt="img" />
-            </div>
+            </div>}
           </div>
         <div class="hide-aside">
          <div class="aside-users">
@@ -46,8 +47,8 @@ const RepositoriesMain = () => {
             </select>
           </div>
           <div>
-            <Link to={"/repositories"} >
-              <button onClick={closeHamburger} class="aside-button">
+            <Link to={"/repositories"}>
+              <button class="aside-button">
                 <img class="mini-logo" src={Home} alt="home-img" />
                 <p>Repositories</p>
               </button>
@@ -70,10 +71,12 @@ const RepositoriesMain = () => {
             </Link>
           </div>
           <div>
+            <Link to={"/repositories/howtouse"}>
             <button class="aside-button">
               <img class="mini-logo" src={Book} alt="home-img" />
               <p>How to Use</p>
-            </button>
+            </button></Link>
+            
           </div>
           <div>
             <Link to={"/repositories/settings"}>
@@ -88,10 +91,12 @@ const RepositoriesMain = () => {
         </div>
         <div class="logout">
           <div>
+            <Link to={"/repositories/support"}>
             <button class="aside-button">
               <img class="mini-logo" src={Phone} alt="home-img" />
               <p>Support</p>
-            </button>
+            </button></Link>
+            
           </div>
           <div>
             <Link to={"/signup"}>
@@ -107,7 +112,7 @@ const RepositoriesMain = () => {
         
       </div>
         <div class={hamburger?"unhide set-index":"hide"}>
-           <HamBurger/>
+           <HamBurger hamburger={hamburger}/>
        </div>
       
       <div class="right-col">
