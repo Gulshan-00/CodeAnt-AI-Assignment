@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import Home from "../../assets/Home.png";
 import Code from "../../assets/Code.png";
@@ -8,24 +8,31 @@ import Setting from "../../assets/Setting.png";
 import Phone from "../../assets/Phone.png";
 import Logout from "../../assets/Logout.png";
 
-const HamBurger = (hamBurger) => {
+const HamBurger = (props) => {
 
   // const [hamBurger,setHamBurger]=useState(false)
   // const closeHamburger = () => {
   //   setHamBurger(!hamburger);
   // };
-  console.log(hamBurger);
+  
+const {setHamBurger,userName}=props;
+// console.log(hamburger);
 
+const hideFuntion=(hamburger)=>{
+  setHamBurger(!hamburger);
+}
 
   return (
-    <div onClick={hamBurger}>
+    <div >
         <div class="aside-users">
             <select class="select" name="users" id="users">
+              <option value="UtkarshDhairyaPanwar">{userName?.login}</option>
               <option value="UtkarshDhairyaPanwar">UtkarshDhairyaPanwar</option>
               <option value="Gulshan">Gulshan</option>
               <option value="More username">More username...</option>
             </select>
           </div>
+          <div onClick={hideFuntion}>
           <div>
             <Link to={"/repositories"}>
               <button class="aside-button">
@@ -81,6 +88,7 @@ const HamBurger = (hamBurger) => {
               </button>
             </Link>
             
+          </div>
           </div>
     </div>
   )

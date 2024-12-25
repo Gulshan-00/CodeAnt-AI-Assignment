@@ -5,7 +5,7 @@ import logo from "../../assets/logo-img.png";
 const ErrorPage = () => {
 
     const error=useRouteError();
-    console.log(error);
+    // console.log(error);
 
   return (
     <div className='flex items-center justify-center gap-10 h-screen'>

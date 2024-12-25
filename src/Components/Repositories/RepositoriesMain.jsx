@@ -12,16 +12,22 @@ import { Link, Outlet } from "react-router-dom";
 import HamBurgerIcon from "../../assets/HamBurger.png";
 import HamBurger from "../HamBurger/HamBurger";
 import CrossHamBurger from "../../assets/Cross-HamBurger.png"
+import useGitHubDataFetch from "../Hooks/useGitHubDataFetch";
 
 const RepositoriesMain = () => {
+  
+  const githubData=useGitHubDataFetch();
+
   // const [onclick, setOnClick] = useState("true");
   const [hamburger,setHamBurger]=useState(false);
   const hamBurgerFunction=()=>{
      setHamBurger(!hamburger);
   }
-  console.log(hamburger)
   
-  // console.log(hamburger)
+  
+  
+  
+  // console.log(githubData);
 
   return (
     <div class="repo-container">
@@ -41,7 +47,9 @@ const RepositoriesMain = () => {
         <div class="hide-aside">
          <div class="aside-users">
             <select class="select" name="users" id="users">
+              <option value="Gulshan">{githubData.login}</option>
               <option value="UtkarshDhairyaPanwar">UtkarshDhairyaPanwar</option>
+              <option value="Gulshan">Gulshan</option>
               <option value="Gulshan">Gulshan</option>
               <option value="More username">More username...</option>
             </select>
@@ -112,7 +120,7 @@ const RepositoriesMain = () => {
         
       </div>
         <div class={hamburger?"unhide set-index":"hide"}>
-           <HamBurger hamburger={hamburger}/>
+           <HamBurger hamburger={hamburger} setHamBurger={setHamBurger} userName={githubData}/>
        </div>
       
       <div class="right-col">
